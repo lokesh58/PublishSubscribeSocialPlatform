@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class Text implements Comparable<Text> {
 	private int tid;
 	private int postTime;

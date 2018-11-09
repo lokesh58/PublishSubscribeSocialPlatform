@@ -1,3 +1,5 @@
+import java.util.Set;
+
 public class User implements Comparable<User> {
 	private int uid;
 	private int upTime;
@@ -20,5 +22,15 @@ public class User implements Comparable<User> {
 		upTime = -1;
 		subscriptions = new TreeSet<Sub<();
 		posts = new TreeSet<Sub>();
+	}
+
+	public int compareTo(User u) {
+		if (uid < u.uid) {
+			return -1;
+		} else if (uid > u.uid) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 }
