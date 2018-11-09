@@ -7,11 +7,11 @@ public class checker
 	public static void main ( String args [])
 	{
 		BufferedReader br = null;
-		SearchEngine r = new SearchEngine();
+		Platform r = new Platform();
 
 		try {
 			String actionString;
-			br = new BufferedReader(new FileReader("actions.txt"));
+			br = new BufferedReader(new FileReader("actions3.txt"));
 
 			while ((actionString = br.readLine()) != null) {
 				r.performAction(actionString);
