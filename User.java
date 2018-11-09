@@ -1,4 +1,4 @@
-import java.util.Set;
+import java.util.*;
 
 public class User implements Comparable<User> {
 	private int uid;
@@ -20,8 +20,8 @@ public class User implements Comparable<User> {
 	User(int uid) {
 		this.uid = uid;
 		upTime = -1;
-		subscriptions = new TreeSet<Sub<();
-		posts = new TreeSet<Sub>();
+		subscriptions = new TreeSet<Sub>();
+		posts = new TreeSet<Text>();
 	}
 
 	public int compareTo(User u) {
