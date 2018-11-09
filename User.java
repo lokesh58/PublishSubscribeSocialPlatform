@@ -32,6 +32,10 @@ public class User implements Comparable<User> {
 		posts.add(t);
 	}
 
+	public void updated(int t) {
+		upTime = t;
+	}
+
 	public boolean hasPosted(int tid) {
 		for (Text post : posts) {
 			if (post.tid() == tid) {
@@ -41,12 +45,12 @@ public class User implements Comparable<User> {
 		return false;
 	}
 
-	public boolean hasReplied(int tid) {
+	public boolean hasReplied(int tid, int t) {
 		for (Text post : posts) {
 			if (!post.type().equals("NEW") && post.type().substring(0,5).equals("REPLY")) {
 				int id = Integer.parseInt(post.type().substring(6, post.type().length()-1));
 				if (tid == id) {
-					return true;
+					return post.postTime() < t;
 				}
 			}
 		}
@@ -88,7 +92,7 @@ public class User implements Comparable<User> {
 		for (Text post : posts) {
 			if (post.postTime() >= t0 && post.postTime() < t) {
 				if (isSub||(!post.type().equals("NEW")&&post.type().substring(0,5).equals("REPLY")&&u.hasPosted(Integer.parseInt(post.type().substring(6,post.type().length()-1))))) {
-					if (!u.hasReplied(post.tid())) {
+					if (!u.hasReplied(post.tid(), t)) {
 						updates.add(post);
 					}
 				}

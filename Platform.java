@@ -65,7 +65,7 @@ public class Platform {
 						throw new Exception("Invalid publish format");
 					}
 					if (findText(tid) != null) {
-						throw new Exception("Text with "+tid+" already exists");
+						throw new Exception("Text with tid "+tid+" already exists");
 					}
 					u.post(new Text(tid, t, type, u, text));
 					break;
@@ -93,6 +93,7 @@ public class Platform {
 						if (user.uid() == u.uid()) continue;
 						updates.addAll(user.getUpdates(u, t));
 					}
+					u.updated(t);
 					if (updates.size() == 0) {
 						throw new Exception("User "+uid+" has no updates available");
 					} else {
