@@ -15,6 +15,22 @@ public class Text implements Comparable<Text> {
 		this.text = text;
 	}
 
+	public int tid() {
+		return tid;
+	}
+
+	public String text() {
+		return text;
+	}
+
+	public int postTime() {
+		return postTime;
+	}
+
+	public String type() {
+		return type;
+	}
+
 	public int compareTo(Text t) {
 		if (postTime < t.postTime) {
 			return -1;
